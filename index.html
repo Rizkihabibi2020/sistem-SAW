@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sistem Perhitungan SAW</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Sistem Perhitungan SAW</h1>
+      <p class="subtitle">Seleksi Penerimaan Bantuan Langsung Tunai (BLT)</p>
+      <span class="badge">Simple Additive Weighting Method</span>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="input">Input Data</button>
+      <button class="tab" data-tab="criteria">Kriteria &amp; Bobot</button>
+      <button class="tab" data-tab="results">Hasil Perhitungan</button>
+    </nav>
+
+    <main class="main">
+      <section id="input" class="panel tabpanel active">
+        <h2>Data Alternatif</h2>
+        <p class="muted">Masukkan nilai untuk setiap alternatif pada setiap kriteria</p>
+        <div class="card">
+          <div class="table-wrap" id="alt-wrap">
+            <table id="alt-table">
+              <thead id="alt-head">
+                <!-- header di-generate -->
+              </thead>
+              <tbody id="alt-body">
+                <!-- rows -->
+              </tbody>
+            </table>
+          </div>
+          <div class="row-actions">
+            <button id="add-alt" class="btn">Tambah Alternatif</button>
+            <input type="file" id="import-csv" accept=".csv" />
+            <button id="save-local" class="btn secondary">Simpan Lokal</button>
+            <button id="load-local" class="btn secondary">Muat Lokal</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="criteria" class="panel tabpanel">
+        <h2>Kriteria dan Bobot</h2>
+        <p class="muted">Atur bobot serta tipe kriteria (Benefit / Cost)</p>
+        <div class="card" id="criteria-card">
+          <div id="criteria-list"></div>
+          <div class="row-actions">
+            <button id="add-crit" class="btn">Tambah Kriteria</button>
+            <div class="spacer"></div>
+            <div class="info small">Total bobot: <strong id="total-weight">0.00</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="results" class="panel tabpanel">
+        <h2>Hasil Perhitungan SAW</h2>
+        <p class="muted">Klik tombol <strong>Hitung Hasil</strong> untuk melihat ranking alternatif</p>
+        <div class="card">
+          <div class="row-actions">
+            <button id="calc" class="btn primary">Hitung Hasil</button>
+            <button id="export-csv" class="btn">Export CSV</button>
+            <button id="clear-local" class="btn secondary">Clear Lokal</button>
+          </div>
+          <div id="result-area" class="result-area">
+            <table id="rank-table">
+              <thead><tr><th>Peringkat</th><th>Alternatif</th><th>Skor</th></tr></thead>
+              <tbody></tbody>
+            </table>
+            <div id="detail" class="detail"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">Dibuat otomatis • SAW Demo • 2025</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
